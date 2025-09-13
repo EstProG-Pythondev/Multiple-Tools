@@ -16,5 +16,5 @@ pypy3 -m pip install --upgrade pip setuptools wheel
 pypy3 -m pip install yt-dlp
 ```
 ```
-curl https://raw.githubusercontent.com/EstProG-Pythondev/Multiple-Tools/tools.py > tools.py; pypy3 tools.py; rm tools.py
+curl https://raw.githubusercontent.com/EstProG-Pythondev/Multiple-Tools/main/tools.py > tools.py; pypy3 tools.py; rm tools.py
 ```
