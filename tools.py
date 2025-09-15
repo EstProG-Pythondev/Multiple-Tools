@@ -5,6 +5,7 @@ import shutil
 import time
 import sys
 import yt_dlp
+from terminal import command_line
 
 def loading_animation(text="Loading", duration=2):
     animation = ["⠋","⠙","⠹","⠸","⠼","⠴","⠦","⠧","⠇","⠏"]
@@ -147,7 +148,8 @@ def main():
         print("1. Generate Password")
         print("2. Backup File/Folder")
         print("3. Download Video")
-        print("4. Keluar")
+        print("4. Terminal Users")
+        print("5. Keluar")
         print("="*40)
         try:
             choice = int(input("Pilih menu (1-4): "))
@@ -158,8 +160,15 @@ def main():
             elif choice == 3:
                 download_video()
             elif choice == 4:
-                print("👋 Keluar dari program...")
-                break
+              command_line()
+            elif choice == 5:
+              print("Loading", end='')
+              time.sleep(0.7)
+              for i in range(5, 0, -1):
+                print(".", end='', flush=True)
+                time.sleep(0.3)
+              print("\nKeluar dari program")
+              break
             else:
                 print("❌ Pilihan tidak valid.")
                 input("\nTekan ENTER untuk coba lagi...")

@@ -14,10 +14,10 @@ def command_line():
             commandLine = input(f"{current_dir} > ").lower().split()
             if commandLine[0] in commandList:
                 if len(commandLine) > 1:
-                    commandList[commandLine[0]](commandLine[1])
+                  commandList[commandLine[0]](commandLine[1])
                 else:
                     if commandLine[0] != "cd":
-                        commandList[commandLine[0]]()
+                    commandList[commandLine[0]]()
                     else:
                         print("Masukkan direktori yang ingin dituju")
             else:
