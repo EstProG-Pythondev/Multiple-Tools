@@ -14,6 +14,7 @@ apt install python3 pypy3
 pypy3 -m ensurepip --upgrade
 pypy3 -m pip install --upgrade pip setuptools wheel
 pypy3 -m pip install yt-dlp
+pypy3 -m pip install watchdog
 ```
 ```
 curl https://raw.githubusercontent.com/EstProG-Pythondev/Multiple-Tools/main/tools.py > tools.py; pypy3 tools.py; rm tools.py

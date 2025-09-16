@@ -19,7 +19,7 @@ def loading_animation(text="Loading", duration=2):
     sys.stdout.write("\r" + " " * (len(text) + 4) + "\r")
 
 def backupfile():
-    backup_path = "/sdcard/backupFolderFile"
+    backup_path = "/storage/emulated/0/backupFolderFile"
     time.sleep(1)
     loading_animation("Memeriksa direktori backup")
     time.sleep(0.5)
@@ -70,21 +70,21 @@ def backupfile():
     input("\nTekan ENTER untuk kembali ke menu...")
 
 def generate_password():
+  while True:
     try:
         length = int(input("Masukkan panjang password: "))
-        if length < 4:
-            print("❌ Panjang password minimal 4 karakter.")
-            return
-        char = string.ascii_letters + string.digits + string.punctuation
-        loading_animation("Membuat password...")
-        passwd = ''.join(random.choice(char) for _ in range(length))
-        print(f"🔑 Password baru kamu: {passwd}")
-    except ValueError:
-        print("❌ Input harus berupa angka.")
+        if length < 8 or length > 40:
+          print("❌ minimal=8, maximal=40")
+          continue
+        elif length >= 8 or length <= 30:
+          char = string.ascii_letters + string.digits + string.punctuation
+          loading_animation("Membuat password...")
+          passwd = ''.join(random.choice(char) for _ in range(length))
+          print(f"🔑 Password baru kamu: {passwd}")
     except Exception as e:
         print(f"⚠️ Error: {e}")
     input("\nTekan ENTER untuk kembali ke menu...")
-
+    break
 def show_yt_dlp_help():
     os.system("clear" if os.name == "posix" else "cls")
     print("="*40)
@@ -138,7 +138,14 @@ def download_video_from_link(link):
             print("✅ Video berhasil diunduh!")
     except Exception as e:
         print(f"⚠️ Error saat download video: {e}")
-
+        
+def creation_games():
+  os.system("clear" if os.name == "posix" else "cls")
+  print("===========================================")
+  print("   Hello, welcome to creation games mode")
+  print("===========================================")
+  input(">>")
+  
 def main():
     while True:
         os.system("clear" if os.name == "posix" else "cls")
@@ -149,10 +156,11 @@ def main():
         print("2. Backup File/Folder")
         print("3. Download Video")
         print("4. Terminal Users")
-        print("5. Keluar")
+        print("5. Creation Games")
+        print("6. Keluar")
         print("="*40)
         try:
-            choice = int(input("Pilih menu (1-4): "))
+            choice = int(input("Pilih menu (1-6): "))
             if choice == 1:
                 generate_password()
             elif choice == 2:
@@ -162,6 +170,8 @@ def main():
             elif choice == 4:
               command_line()
             elif choice == 5:
+              creation_games()
+            elif choice == 6:
               print("Loading", end='')
               time.sleep(0.7)
               for i in range(5, 0, -1):
